@@ -17,14 +17,14 @@ const ColumnFilter = ({ users, columns }) => {
       settableData(filteredData);
     };
     search(users);
-  }, [q, tableData]);
+  }, [q, myCol, users]);
   return (
     <>
       <Grid container gap={2}>
         <Grid item xs={12}>
           {columns?.map((r, i) => (
             <label key={Math.random()}>
-              {r}{" "}
+              {r}
               <input
                 type="checkbox"
                 checked={myCol.includes(r)}
