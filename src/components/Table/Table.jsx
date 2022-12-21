@@ -8,7 +8,7 @@ const Table = ({ users, columns, isVisible }) => {
         <table>
           <thead>
             <tr>
-              {columns.map(
+              {columns?.map(
                 (head, i) =>
                   head.includes("false") === false && <th key={i}>{head}</th>
               )}
@@ -18,7 +18,7 @@ const Table = ({ users, columns, isVisible }) => {
             {users &&
               users.map((row) => (
                 <tr key={row.id}>
-                  {columns.map(
+                  {columns?.map(
                     (col, i) =>
                       col.includes("false") === false && (
                         <td key={i}>{row[col]}</td>

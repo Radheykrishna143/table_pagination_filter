@@ -1,13 +1,13 @@
 import { Grid, TextField, InputAdornment } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import Table from "../Table/Table";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import Pagination from "../pagination/Pagination";
 
 const ColumnFilter = ({ users, columns }) => {
   const [q, setQ] = useState("");
   const [tableData, settableData] = useState();
   const [myCol, setmyCol] = useState([...columns]);
-  const [isVisible, setisVisible] = useState(false);
+  const [isVisible] = useState(false);
   useEffect(() => {
     const search = (data) => {
       let filteredData = data;
@@ -62,9 +62,9 @@ const ColumnFilter = ({ users, columns }) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <Table
+          <Pagination
             users={tableData ? tableData : users}
-            columns={myCol}
+            myCol={myCol}
             isVisible={isVisible}
           />
         </Grid>
